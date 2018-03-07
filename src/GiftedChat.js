@@ -229,7 +229,7 @@ class GiftedChat extends React.Component {
    * Returns the height, based on current window size, without taking the keyboard into account.
    */
   getBasicMessagesContainerHeight(composerHeight = this.state.composerHeight) {
-    return this.getMaxHeight() - this.calculateInputToolbarHeight(composerHeight);
+    return this.getMaxHeight() - 54 -10;
   }
 
   /**

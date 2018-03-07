@@ -96,23 +96,25 @@ export default class MessageText extends React.Component {
 }
 
 const textStyle = {
-  fontSize: 16,
-  lineHeight: 20,
+  fontSize: 12,
+  lineHeight: 18,
   marginTop: 5,
   marginBottom: 5,
-  marginLeft: 10,
-  marginRight: 10,
+  marginLeft: 15,
+  marginRight: 15,
+  fontFamily: 'Rubik-Regular',
+  letterSpacing: 0.2
 };
 
 const styles = {
   left: StyleSheet.create({
     container: {},
     text: {
-      color: 'black',
+      color: '#53575e',
       ...textStyle,
     },
     link: {
-      color: 'black',
+      color: '#2f78cc',
       textDecorationLine: 'underline',
     },
   }),

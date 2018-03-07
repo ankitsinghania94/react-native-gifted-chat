@@ -72,7 +72,7 @@ export default class Message extends React.Component {
           <View
             style={[
               styles[this.props.position].container,
-              { marginBottom: sameUser ? 2 : 10 },
+              { marginBottom: 20 },
               !this.props.inverted && { marginBottom: 2 },
               this.props.containerStyle[this.props.position],
             ]}
@@ -92,9 +92,9 @@ const styles = {
   left: StyleSheet.create({
     container: {
       flexDirection: 'row',
-      alignItems: 'flex-end',
+      alignItems: 'flex-start',
       justifyContent: 'flex-start',
-      marginLeft: 8,
+      marginLeft: 15,
       marginRight: 0,
     },
   }),
@@ -104,7 +104,7 @@ const styles = {
       alignItems: 'flex-end',
       justifyContent: 'flex-end',
       marginLeft: 0,
-      marginRight: 8,
+      marginRight: 15,
     },
   }),
 };

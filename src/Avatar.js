@@ -69,16 +69,16 @@ export default class Avatar extends React.Component {
 const styles = {
   left: StyleSheet.create({
     container: {
-      marginRight: 8,
+      marginRight: 15,
     },
     onTop: {
       alignSelf: 'flex-start',
     },
     onBottom: {},
     image: {
-      height: 36,
-      width: 36,
-      borderRadius: 18,
+      height: 30,
+      width: 30,
+      borderRadius: 15,
     },
   }),
   right: StyleSheet.create({
@@ -90,9 +90,9 @@ const styles = {
     },
     onBottom: {},
     image: {
-      height: 36,
-      width: 36,
-      borderRadius: 18,
+      height: 30,
+      width: 30,
+      borderRadius: 15,
     },
   }),
 };

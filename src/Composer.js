@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Platform, StyleSheet, TextInput } from 'react-native';
+import { Platform, StyleSheet, TextInput, View, TouchableOpacity, Text, Image } from 'react-native';
 
 import { MIN_COMPOSER_HEIGHT, DEFAULT_PLACEHOLDER } from './Constant';
 import Color from './Color';
@@ -31,22 +31,50 @@ export default class Composer extends React.Component {
 
   render() {
     return (
-      <TextInput
-        placeholder={this.props.placeholder}
-        placeholderTextColor={this.props.placeholderTextColor}
-        multiline={this.props.multiline}
-        onChange={(e) => this.onContentSizeChange(e)}
-        onContentSizeChange={(e) => this.onContentSizeChange(e)}
-        onChangeText={(text) => this.onChangeText(text)}
-        style={[styles.textInput, this.props.textInputStyle, { height: this.props.composerHeight }]}
-        autoFocus={this.props.textInputAutoFocus}
-        value={this.props.text}
-        accessibilityLabel={this.props.text || this.props.placeholder}
-        enablesReturnKeyAutomatically
-        underlineColorAndroid="transparent"
-        keyboardAppearance={this.props.keyboardAppearance}
-        {...this.props.textInputProps}
-      />
+      <View style={{ flex: 1, minHeight: 54, paddingHorizontal: 15, paddingVertical: 10,
+        flexDirection: 'row', alignItems: 'center', borderTopWidth: 1, borderColor: '#E9EEF1' }}>
+        <Image
+          source={require('../assets/Attachment-grey.png')}
+        />
+        <View style={{
+          flex: 1,
+          minHeight: 34,
+          shadowOffset: {
+            height: 2,
+            width: -1
+          },
+          shadowOpacity: 0.1,
+          backgroundColor: 'white',
+          borderRadius: 5,
+          marginHorizontal: 15
+        }}>
+          <TextInput
+            placeholder={this.props.placeholder}
+            placeholderTextColor={this.props.placeholderTextColor}
+            multiline={this.props.multiline}
+            onChange={(e) => this.onContentSizeChange(e)}
+            onContentSizeChange={(e) => this.onContentSizeChange(e)}
+            onChangeText={(text) => this.onChangeText(text)}
+            style={[styles.textInput, this.props.textInputStyle, { height: this.props.composerHeight }]}
+            autoFocus={this.props.textInputAutoFocus}
+            value={this.props.text}
+            accessibilityLabel={this.props.text || this.props.placeholder}
+            enablesReturnKeyAutomatically
+            underlineColorAndroid="transparent"
+            keyboardAppearance={this.props.keyboardAppearance}
+            {...this.props.textInputProps}
+          />
+        </View>
+        <TouchableOpacity
+          onPress = {() => {
+            this.props.onSend({ text: this.props.text.trim() }, true);
+          }}
+          >
+          <Image
+            source={require('../assets/Emoji-default.png')}
+          />
+        </TouchableOpacity>
+      </View>  
     );
   }
 

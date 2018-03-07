@@ -10,6 +10,14 @@ import Color from './Color';
 import { isSameDay, isSameUser, warnDeprecated } from './utils';
 import { DATE_FORMAT } from './Constant';
 
+const calendarFormat = {
+  lastDay : '[Yesterday]',
+  sameDay : '[Today]',
+  nextDay : '[Tomorrow]',
+  lastWeek : 'dddd',
+  sameElse : 'L'
+}
+
 export default function Day(
   { dateFormat, currentMessage, previousMessage, containerStyle, wrapperStyle, textStyle },
   context,
@@ -17,13 +25,14 @@ export default function Day(
   if (!isSameDay(currentMessage, previousMessage)) {
     return (
       <View style={[styles.container, containerStyle]}>
-        <View style={wrapperStyle}>
+        <View style={[wrapperStyle, {flexDirection: 'row', alignItems: 'center' }]}>
+          <View style={styles.lineDivider} />
           <Text style={[styles.text, textStyle]}>
             {moment(currentMessage.createdAt)
-              .locale(context.getLocale())
-              .format(dateFormat)
-              .toUpperCase()}
+            .calendar(null,calendarFormat)
+            .toUpperCase()}
           </Text>
+          <View style={styles.lineDivider} />
         </View>
       </View>
     );
@@ -35,15 +44,22 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 5,
-    marginBottom: 10,
+    marginVertical: 35
   },
   text: {
     backgroundColor: Color.backgroundTransparent,
-    color: Color.defaultColor,
-    fontSize: 12,
-    fontWeight: '600',
+    color: '#35475b',
+    fontSize: 10,
+    letterSpacing: 0.5,
+    fontFamily: 'Rubik-Medium',
+    paddingHorizontal: 25
   },
+  lineDivider: {
+    height: 1,
+    borderWidth: 0.5,
+    flex: 1, 
+    borderColor: '#e9eef1'
+  }
 });
 
 Day.contextTypes = {
