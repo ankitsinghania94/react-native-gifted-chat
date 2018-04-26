@@ -58,6 +58,7 @@ class GiftedChat extends React.Component {
       composerHeight: MIN_COMPOSER_HEIGHT,
       messagesContainerHeight: null,
       typingDisabled: false,
+      initialComposerHeight: MIN_COMPOSER_HEIGHT
     };
 
     this.onKeyboardWillShow = this.onKeyboardWillShow.bind(this);
@@ -229,7 +230,7 @@ class GiftedChat extends React.Component {
    * Returns the height, based on current window size, without taking the keyboard into account.
    */
   getBasicMessagesContainerHeight(composerHeight = this.state.composerHeight) {
-    return this.getMaxHeight() - 54 -10;
+    return this.getMaxHeight() - 54 - 10;
   }
 
   /**
@@ -312,6 +313,8 @@ class GiftedChat extends React.Component {
       >
         <MessageContainer
           {...this.props}
+          composerHeight={this.state.composerHeight}
+          initialComposerHeight={this.state.initialComposerHeight}
           invertibleScrollViewProps={this.invertibleScrollViewProps}
           messages={this.getMessages()}
           ref={(component) => (this._messageContainerRef = component)}
@@ -413,6 +416,7 @@ class GiftedChat extends React.Component {
       isInitialized: true,
       text: this.getTextFromProp(''),
       composerHeight: newComposerHeight,
+      initialComposerHeight: newComposerHeight,
       messagesContainerHeight: this.prepareMessagesContainerHeight(newMessagesContainerHeight),
     });
   }

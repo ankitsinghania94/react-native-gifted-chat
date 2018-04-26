@@ -32,7 +32,7 @@ export default class Composer extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, minHeight: 54, paddingHorizontal: 15, paddingVertical: 10,
-        flexDirection: 'row', alignItems: 'center', borderTopWidth: 1, borderColor: '#E9EEF1' }}>
+        backgroundColor: 'white', flexDirection: 'row', alignItems: 'center', borderTopWidth: 1, borderColor: '#E9EEF1' }}>
         <Image
           source={require('../assets/Attachment-grey.png')}
         />
@@ -61,6 +61,7 @@ export default class Composer extends React.Component {
             accessibilityLabel={this.props.text || this.props.placeholder}
             enablesReturnKeyAutomatically
             underlineColorAndroid="transparent"
+            minHeight={this.props.composerHeight}
             keyboardAppearance={this.props.keyboardAppearance}
             {...this.props.textInputProps}
           />
