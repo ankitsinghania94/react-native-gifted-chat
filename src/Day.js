@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
   text: {
     backgroundColor: Color.backgroundTransparent,
     color: '#35475b',
-    fontSize: 10,
+    fontSize: 12,
+    lineHeight: 14,
     letterSpacing: 0.5,
     fontFamily: 'Rubik-Medium',
     paddingHorizontal: 25

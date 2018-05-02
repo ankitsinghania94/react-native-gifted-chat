@@ -35,6 +35,7 @@ export default class Composer extends React.Component {
         backgroundColor: 'white', flexDirection: 'row', alignItems: 'center', borderTopWidth: 1, borderColor: '#E9EEF1' }}>
         <Image
           source={require('../assets/Attachment-grey.png')}
+          style={{ height: 30, width: 30 }}
         />
         <View style={{
           flex: 1,
@@ -73,6 +74,7 @@ export default class Composer extends React.Component {
           >
           <Image
             source={require('../assets/Emoji-default.png')}
+            style={{ height: 30, width: 30 }}
           />
         </TouchableOpacity>
       </View>  
